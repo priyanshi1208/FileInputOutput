@@ -1,10 +1,15 @@
 package com.magic.employeepayroll;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class EmployeePayroll {
+    public EmployeePayroll(List<Employee> employeeList) {
+        this.employeeList = employeeList;
+    }
+
     public List<Employee> employeeList;
     public void readEmployeeData(Scanner consoleInputReader) {
         employeeList=new ArrayList<>();
@@ -16,15 +21,19 @@ public class EmployeePayroll {
         double salary = consoleInputReader.nextDouble();
         employeeList.add(new Employee(id, name, salary));
     }
-    public void writeEmployeeData() {
-        System.out.println(employeeList);
+    public void writeEmployeeData(OutputType outputType) throws IOException {
+        if(outputType.equals(OutputType.Console_InputOutput))
+            System.out.println(employeeList);
+        else
+            new EmployeePayrollFileIO().writeIntoFile(employeeList);
     }
 
-    public static void main(String[] args) {
-        EmployeePayroll employeePayroll=new EmployeePayroll();
+    public static void main(String[] args) throws IOException {
+        ArrayList<Employee> list=new ArrayList<>();
+        EmployeePayroll employeePayroll=new EmployeePayroll(list);
         Scanner consoleReader=new Scanner(System.in);
         employeePayroll.readEmployeeData(consoleReader);
-        employeePayroll.writeEmployeeData();
+        employeePayroll.writeEmployeeData(OutputType.Console_InputOutput);
     }
 
 }
