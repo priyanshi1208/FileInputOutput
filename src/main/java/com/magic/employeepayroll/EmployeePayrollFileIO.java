@@ -33,5 +33,12 @@ public class EmployeePayrollFileIO{
         }
         return employeeIndex;
     }
+    public void printEmployeeData(){
+        try {
+            Files.lines(fileLocation).forEach(System.out::println);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

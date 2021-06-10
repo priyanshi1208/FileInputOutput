@@ -25,6 +25,9 @@ public class EmployeePayroll {
     public long CountEntries(){
         return employeePayrollFileIO.CountNumberOfEntries();
     }
+    public void PrintData(){
+        employeePayrollFileIO.printEmployeeData();
+    }
     public void writeEmployeeData(OutputType outputType) throws IOException {
         if(outputType.equals(OutputType.Console_InputOutput))
             System.out.println(employeeList);
