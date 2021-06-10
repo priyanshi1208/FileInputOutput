@@ -9,6 +9,7 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class EmployeePayrollFileIO{
+
     Path fileLocation= Paths.get("C:\\Users\\ayuanshi\\Documents\\FileInputOutputDemo\\EmployeeData.txt");
     public void writeIntoFile(List<Employee> employeeList) throws IOException {
             StringBuffer buffer = new StringBuffer();
@@ -22,5 +23,15 @@ public class EmployeePayrollFileIO{
                     e.printStackTrace();
                 }
             });
+    }
+    public long CountNumberOfEntries(){
+        long employeeIndex=0;
+        try {
+            employeeIndex=Files.lines(fileLocation).count();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+        return employeeIndex;
+    }
+
 }

@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class EmployeePayroll {
+    EmployeePayrollFileIO employeePayrollFileIO=new EmployeePayrollFileIO();
     public EmployeePayroll(List<Employee> employeeList) {
         this.employeeList = employeeList;
     }
@@ -20,6 +21,9 @@ public class EmployeePayroll {
         System.out.println("Enter Employee Salary");
         double salary = consoleInputReader.nextDouble();
         employeeList.add(new Employee(id, name, salary));
+    }
+    public long CountEntries(){
+        return employeePayrollFileIO.CountNumberOfEntries();
     }
     public void writeEmployeeData(OutputType outputType) throws IOException {
         if(outputType.equals(OutputType.Console_InputOutput))
