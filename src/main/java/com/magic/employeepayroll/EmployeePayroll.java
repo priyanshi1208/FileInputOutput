@@ -28,6 +28,9 @@ public class EmployeePayroll {
     public void PrintData(){
         employeePayrollFileIO.printEmployeeData();
     }
+    public void ReadEmployeeDataFromFile() throws IOException {
+        employeePayrollFileIO.readFile();
+    }
     public void writeEmployeeData(OutputType outputType) throws IOException {
         if(outputType.equals(OutputType.Console_InputOutput))
             System.out.println(employeeList);

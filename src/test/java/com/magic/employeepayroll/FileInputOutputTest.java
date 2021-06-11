@@ -85,6 +85,18 @@ public class FileInputOutputTest {
         };
         EmployeePayroll employeePayroll = new EmployeePayroll(Arrays.asList(employeeData));
         employeePayroll.writeEmployeeData(OutputType.File_InputOutput);
-        employeePayroll.PrintData();
+        //employeePayroll.PrintData();
+        employeePayroll.ReadEmployeeDataFromFile();
+    }
+    @Test
+    public void validating_if_the_methods_read_entries_of_file() throws IOException {
+        Employee[] employeeData = {
+                new Employee(1,"Daniel", 2000000.0),
+                new Employee(2,"Bella", 120000.0),
+                new Employee(3,"Rose", 90000.0)
+        };
+        EmployeePayroll employeePayroll = new EmployeePayroll(Arrays.asList(employeeData));
+        employeePayroll.writeEmployeeData(OutputType.File_InputOutput);
+        employeePayroll.ReadEmployeeDataFromFile();
     }
 }

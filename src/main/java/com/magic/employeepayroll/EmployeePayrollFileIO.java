@@ -1,7 +1,6 @@
 package com.magic.employeepayroll;
 
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -39,6 +38,17 @@ public class EmployeePayrollFileIO{
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public void readFile() throws IOException {
+        BufferedReader reader=Files.newBufferedReader((fileLocation));
+        Files.lines(fileLocation).forEach(lines-> {
+            try {
+                reader.readLine();
+                System.out.println(lines);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
 }
